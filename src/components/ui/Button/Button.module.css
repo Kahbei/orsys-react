@@ -22,11 +22,11 @@
 }
 
 .Btn-type2 {
-  border-color: var(--indigo9);
+  border-color: var(--blue9);
 }
 
 .Btn-type2:hover {
-  background-color: var(--indigo9);
+  background-color: var(--blue9);
   color: var(--grey0);
 }
 
@@ -49,5 +49,6 @@
 }
 
 .btn-clicked {
-  box-shadow: 0 0 1.2rem var(--yellow9);
+  border-color: var(--yellow0);
+  box-shadow: 0 0 1.2rem var(--yellow4);
 }

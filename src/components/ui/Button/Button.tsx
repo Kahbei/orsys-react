@@ -5,7 +5,7 @@ interface IButtonInterface {
   classTitle: string | Array<string> | string[],
   children: string | React.ReactElement | Array<React.ReactElement>,
   typeBtn: 'button'|'submit'|'reset',
-  onBtnClick?: Function,
+  onBtnClick?():undefined,
 }
 
 const Button = ({ classTitle, children, typeBtn, onBtnClick }: IButtonInterface) => {
@@ -29,12 +29,12 @@ const Button = ({ classTitle, children, typeBtn, onBtnClick }: IButtonInterface)
       }
     }
 
-    return listClass;
+    return listClass + (clicked ? ` ${styles["btn-clicked"]}` : "");
   }
 
   return (
     <button 
-      className={ getClassStyle() + (clicked ? ` ${styles["btn-clicked"]}` : "") }
+      className={ getClassStyle() }
       type={ typeBtn }
       onClick={ 
         () => {
