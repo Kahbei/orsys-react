@@ -1,0 +1,9 @@
+.FlexVerticalThirGrow {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+}
+
+.FlexVerticalThirGrow *:nth-child(3){
+  flex-grow: 1;
+}

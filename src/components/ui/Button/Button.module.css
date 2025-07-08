@@ -12,38 +12,38 @@
   margin: 1rem 1rem;
 }
 
-.Btn-type1 {
+.Btn-grey {
   border-color: var(--grey9);
 }
 
-.Btn-type1:hover {
+.Btn-grey:hover {
   background-color: var(--grey9);
   color: var(--grey0);
 }
 
-.Btn-type2 {
+.Btn-blue {
   border-color: var(--blue9);
 }
 
-.Btn-type2:hover {
+.Btn-blue:hover {
   background-color: var(--blue9);
   color: var(--grey0);
 }
 
-.Btn-type3 {
+.Btn-green {
   border-color: var(--green9);
 }
 
-.Btn-type3:hover {
+.Btn-green:hover {
   background-color: var(--green9);
   color: var(--grey0);
 }
 
-.Btn-type4 {
+.Btn-red {
   border-color: var(--red9);
 }
 
-.Btn-type4:hover {
+.Btn-red:hover {
   background-color: var(--red9);
   color: var(--grey0);
 }

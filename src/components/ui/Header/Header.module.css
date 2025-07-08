@@ -1,0 +1,15 @@
+.Header {
+  font-size: xx-large;
+  text-decoration: underline grey;
+  font-weight: 900;
+  padding-left: 10px;
+}
+
+.meme{
+  color: skyblue;
+}
+
+.js{
+  color: tomato;
+  font-style: italic;
+}
