@@ -2,6 +2,7 @@
 
 Répertoire en lien avec la formation Orsys pour React.js
 
+[Repo du formateur](https://github.com/champix56/2025-06-07-tjscv1)
 
 ## React + TypeScript + Vite
 
