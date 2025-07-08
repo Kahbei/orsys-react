@@ -1,4 +1,23 @@
 :root {
+  --grey9: #212529;
+  --grey4: #ced4da;
+  --grey0: #f8f9fa;
+  --indigo9: #364fc7;
+  --indigo4: #748ffc;
+  --indigo0: #edf2ff;
+  --red9: #c92a2a;
+  --red4: #ff8787;
+  --red0: #fff5f5;
+  --green9: #2b8a3e;
+  --green4: #69db7c;
+  --green0: #ebfbee;
+  --yellow9: #e67700;
+  --yellow4: #ffd43b;
+  --yellow0: #fff9db;
+
+}
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +84,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

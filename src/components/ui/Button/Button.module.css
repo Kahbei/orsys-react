@@ -1,0 +1,53 @@
+.Btn-base {
+  min-width: 80px;
+  min-height: 40px;
+  border: 2px solid;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-weight: 400;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: var(--grey9);
+  background-color: var(--grey1);
+  transition: ease-in-out .2s;
+  margin: 1rem 1rem;
+}
+
+.Btn-type1 {
+  border-color: var(--grey9);
+}
+
+.Btn-type1:hover {
+  background-color: var(--grey9);
+  color: var(--grey0);
+}
+
+.Btn-type2 {
+  border-color: var(--indigo9);
+}
+
+.Btn-type2:hover {
+  background-color: var(--indigo9);
+  color: var(--grey0);
+}
+
+.Btn-type3 {
+  border-color: var(--green9);
+}
+
+.Btn-type3:hover {
+  background-color: var(--green9);
+  color: var(--grey0);
+}
+
+.Btn-type4 {
+  border-color: var(--red9);
+}
+
+.Btn-type4:hover {
+  background-color: var(--red9);
+  color: var(--grey0);
+}
+
+.btn-clicked {
+  box-shadow: 0 0 1.2rem var(--yellow9);
+}
