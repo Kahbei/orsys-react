@@ -7,12 +7,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "json": "json-server -p 5679 db/db.json"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
     "orsys-tjs-meme": "^1.0.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-redux": "^9.2.0",
     "yarn": "^1.22.22"
   },
   "devDependencies": {
@@ -24,6 +27,7 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
+    "json-server": "0.17.4",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.34.1",
     "vite": "^7.0.0"

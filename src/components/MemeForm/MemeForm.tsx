@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import styles from './MemeForm.module.css';
 import Button from '../ui/Button/Button';
-import type { MemeInterface } from 'orsys-tjs-meme';
+import type { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
 
 interface IMemeFormProps {
   meme: MemeInterface
-  onMemeChange(m:MemeInterface):undefined
+  onMemeChange(m:MemeInterface): undefined
+  images: Array<ImageInterface> | ImageInterface[]
 }
 
-const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange}) => {
+const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
   const onStringInputChange = (evt:React.FormEvent<HTMLInputElement>) => {
     const tmp = { ...meme };
     tmp[evt.target.name] = evt.target.value;
@@ -18,6 +19,12 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange}) => {
   const onNumberInputChange = (evt:React.FormEvent<HTMLInputElement>) => {
     const tmp = { ...meme };
     tmp[evt.target.name] = Number(evt.target.value);
+    onMemeChange(tmp);
+  }
+
+  const onSelectInputChange = (evt:React.FormEvent<HTMLInputElement>) => {
+    const tmp = { ...meme };
+    tmp[`${evt.target.name}Id`] = Number(evt.target.value);
     onMemeChange(tmp);
   }
 
@@ -52,8 +59,10 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange}) => {
         <label htmlFor="image">
           <h2>Image</h2>
         </label>
-        <select name="image" id="image">
-          <option value="-1">No image</option>
+        <select name="image" id="image" value={meme.imageId} onInput={onSelectInputChange}>
+          {
+            images.map((el, pos) => <option key={'si' + pos + el.id} value={el.id}>{el.name}</option>)
+          }
         </select>
 
         <hr />
