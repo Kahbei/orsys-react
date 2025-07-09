@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './MemeForm.module.css';
 import Button from '../ui/Button/Button';
 import type { ImageInterface, MemeInterface } from 'orsys-tjs-meme';
@@ -10,21 +10,10 @@ interface IMemeFormProps {
 }
 
 const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
-  const onStringInputChange = (evt:React.FormEvent<HTMLInputElement>) => {
+  const onInputChange = (evt:React.FormEvent<HTMLInputElement>, keyName: string, isNumber: boolean = false) => {
     const tmp = { ...meme };
-    tmp[evt.target.name] = evt.target.value;
-    onMemeChange(tmp);
-  }
-
-  const onNumberInputChange = (evt:React.FormEvent<HTMLInputElement>) => {
-    const tmp = { ...meme };
-    tmp[evt.target.name] = Number(evt.target.value);
-    onMemeChange(tmp);
-  }
-
-  const onSelectInputChange = (evt:React.FormEvent<HTMLInputElement>) => {
-    const tmp = { ...meme };
-    tmp[`${evt.target.name}Id`] = Number(evt.target.value);
+    
+    tmp[keyName] = isNumber ? Number(evt.target.value) : evt.target.value;
     onMemeChange(tmp);
   }
 
@@ -49,7 +38,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
               value = value.toLowerCase();
               evt.target.value = value
 
-              onStringInputChange(evt)
+              onInputChange(evt, evt.target.name, false);
             }
           }
         />
@@ -59,7 +48,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
         <label htmlFor="image">
           <h2>Image</h2>
         </label>
-        <select name="image" id="image" value={meme.imageId} onInput={onSelectInputChange}>
+        <select name="image" id="image" value={meme.imageId} onInput={ (evt) => onInputChange(evt, 'imageId', true)}>
           {
             images.map((el, pos) => <option key={'si' + pos + el.id} value={el.id}>{el.name}</option>)
           }
@@ -75,7 +64,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
           id="text" 
           type="text" 
           value={meme.text} 
-          onInput={onStringInputChange}
+          onInput={ (evt) => onInputChange(evt, evt.target.name, false) }
         />
         <br />
 
@@ -88,7 +77,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
           id="x" 
           type="number"
           value={meme.x}
-          onInput={onNumberInputChange}
+          onInput={(evt) => onInputChange(evt, evt.target.name, true)}
         />
 
         <label htmlFor="y">
@@ -100,7 +89,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
           id="y" 
           type="number" 
           value={meme.y}
-          onInput={onNumberInputChange}
+          onInput={(evt) => onInputChange(evt, evt.target.name, true)}
         />
 
         <hr />
@@ -114,7 +103,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
           id="color" 
           type="color"
           value={meme.color} 
-          onInput={onStringInputChange}
+          onInput={ (evt) => onInputChange(evt, evt.target.name, false) }
         />
         <br />
 
@@ -128,7 +117,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
           type="number"
           min="0"
           value={meme.fontSize}
-          onInput={onNumberInputChange}
+          onInput={(evt) => onInputChange(evt, evt.target.name, true)}
         />
         px
         <br />
@@ -145,7 +134,7 @@ const MemeForm: React.FC<IMemeFormProps> = ({meme, onMemeChange, images}) => {
           step="100"
           max="900"
           value={meme.fontWeight}
-          onInput={onStringInputChange}
+          onInput={ (evt) => onInputChange(evt, evt.target.name, false) }
         />
         <br />
 
