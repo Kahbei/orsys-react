@@ -3,9 +3,11 @@ import FlexVerticalThirGrow from './components/layout/FlexVerticalThirGrow/FlexV
 import FlexHorizontalFirstGrow from './components/layout/FlexHorizontalFirstGrow/FlexHorizontalFirstGrow';
 import Header from './components/ui/Header/Header';
 import Navbar from './components/ui/Navbar/Navbar';
-import MemeForm from './components/MemeForm/MemeForm.connected';
 import Footer from './components/ui/Footer/Footer';
-import MemeSvgViewer from './components/ui/MemeSVGViewer/MemeSVGViewer.connected';
+import { Route, Routes } from 'react-router';
+import Home from './components/pages/Home';
+import Editor from './components/pages/Editor';
+import Thumbnail from './components/pages/Thumbnail';
 
 
 const App = () => {
@@ -15,8 +17,12 @@ const App = () => {
         <Header />
         <Navbar />
         <FlexHorizontalFirstGrow>
-          <MemeSvgViewer />
-          <MemeForm />
+          <Routes>
+            <Route path='/' Component={Home} />
+            <Route path="/editor/" Component={Editor} />
+            <Route path="/editor/:id" Component={Editor} />
+            <Route path='/thumbnail' Component={Thumbnail} />
+          </Routes>
         </FlexHorizontalFirstGrow>
         <Footer />
       </FlexVerticalThirGrow>
